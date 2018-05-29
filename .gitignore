@@ -5,11 +5,13 @@
 /tmp
 
 # dependencies
-/node_modules
+GraphicalRepresentationofArray/node_modules
 
 # IDEs and editors
-/.idea
-.project
+.idea
+.idea/
+.idea/workspace.xml
+.idea/vcs.xml
 .classpath
 .c9/
 *.launch
