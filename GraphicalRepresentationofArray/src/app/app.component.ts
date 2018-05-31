@@ -6,12 +6,13 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private fileText;
+  fileText;
+  uploaded = false;
   interpreted = [];
   interpretedRound = [];
   playerData = [];
   start = -1;
-  roundStart = -1;
+  roundStart = 10;
   end = -1;
   roundEnd = -1;
   playerOneHealth;
@@ -22,7 +23,6 @@ export class AppComponent {
   playerTwoScore;
   playerOneName;
   playerTwoName;
-  uploaded = false;
   cell = [];
   images = [];
   rows = 0;
@@ -32,6 +32,8 @@ export class AppComponent {
   imageRow3 = [];
   imageRow4 = [];
 
+  endOfMatch;
+
   fileUpload(event) {
     this.uploaded = true;
     const reader = new FileReader();
@@ -40,6 +42,10 @@ export class AppComponent {
     reader.onload = function () {
       me.fileText = reader.result;
     }
+  }
+
+  findEnd() {
+    return this.endOfMatch;
   }
 
   loopText() {
@@ -80,6 +86,10 @@ export class AppComponent {
       }
       this.drawMethod();
     }
+
+    this.endOfMatch = this.interpreted.entries();
+    console.log(this.interpreted[0]);
+
   }
 
   drawMethod() {
