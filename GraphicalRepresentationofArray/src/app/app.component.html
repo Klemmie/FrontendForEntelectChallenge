@@ -1,3 +1,36 @@
-<h1>
-  {{title}}
-</h1>
+<input id="file-upload"
+       type="file"
+       accept=".txt"
+       (change)="fileUpload($event)">
+<button class="btn btn-primary" [disabled]="!uploaded" (click)="loopText()">Interpret</button>
+<!--<div *ngFor="let image of images; let i = index" class="row">-->
+<!--<div *ngIf="i < 8" class="column">-->
+<!--<td>-->
+<!--<img src="{{image}}" height="50" width="50"/>-->
+<!--</td>-->
+<!--</div>-->
+<!--</div>-->
+<td>
+  <div class="row">
+    <div class="column">
+      <div *ngFor="let image of imageRow1">
+        <img src="{{image}}" height="50" width="50"/>
+      </div>
+    </div>
+    <div class="column">
+      <div *ngFor="let image of imageRow2">
+        <img src="{{image}}" height="50" width="50"/>
+      </div>
+    </div>
+    <div class="column">
+      <div *ngFor="let image of imageRow3">
+        <img src="{{image}}" height="50" width="50"/>
+      </div>
+    </div>
+    <div class="column">
+      <div *ngFor="let image of imageRow4">
+        <img src="{{image}}" height="50" width="50"/>
+      </div>
+    </div>
+  </div>
+</td>
