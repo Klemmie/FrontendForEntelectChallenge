@@ -68,7 +68,6 @@ export class AppComponent {
       j++;
     }
     this.drawMethod();
-    console.log(this.cell);
   }
 
   drawMethod(){
@@ -88,10 +87,18 @@ export class AppComponent {
           this.images.push("assets/missileOPP.jpg");
         } else if ((this.cell[this.rows][this.columns] !== '[') && (this.cell[this.rows][this.columns] !== ']')){
           this.images.push("assets/empty.jpg");
+        } else if ((this.cell[this.rows][this.columns]).contains("e")){
+          this.images.push("assets/energyDONE.jpg");
+        } else if (this.cell[this.rows][this.columns] === "d"){
+          this.images.push("assets/defenseDONE.jpg");
+        } else if ((this.cell[this.rows][this.columns] === "a") && (this.rows <= 3)){
+          this.images.push("assets/attackTowerPLA.jpg");
+        } else if ((this.cell[this.rows][this.columns] === "a") && (this.rows > 3)){
+          this.images.push("assets/attackTowerOPP.jpg");
         }
       }
     }
-    console.log(this.images);
+
     let j = 0;
     for (let i = 0; i < 8; i++, j++) {
       this.imageRow1[j] = this.images[i];

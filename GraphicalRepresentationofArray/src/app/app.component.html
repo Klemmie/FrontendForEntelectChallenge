@@ -3,32 +3,35 @@
        accept=".txt"
        (change)="fileUpload($event)">
 <button class="btn btn-primary" [disabled]="!uploaded" (click)="loopText()">Interpret</button>
-<!--<div *ngFor="let image of images; let i = index" class="row">-->
-<!--<div *ngIf="i < 8" class="column">-->
-<!--<td>-->
-<!--<img src="{{image}}" height="50" width="50"/>-->
-<!--</td>-->
-<!--</div>-->
-<!--</div>-->
+<div *ngFor="let round of interpretedRound">{{round}}</div>
 <td>
   <div class="row">
-    <div class="column">
-      <div *ngFor="let image of imageRow1">
+    <div *ngFor="let image of imageRow1">
+      <div class="column">
         <img src="{{image}}" height="50" width="50"/>
       </div>
     </div>
-    <div class="column">
-      <div *ngFor="let image of imageRow2">
+  </div>
+
+  <div class="row">
+    <div *ngFor="let image of imageRow2">
+      <div class="column">
         <img src="{{image}}" height="50" width="50"/>
       </div>
     </div>
-    <div class="column">
-      <div *ngFor="let image of imageRow3">
+  </div>
+
+  <div class="row">
+    <div *ngFor="let image of imageRow3">
+      <div class="column">
         <img src="{{image}}" height="50" width="50"/>
       </div>
     </div>
-    <div class="column">
-      <div *ngFor="let image of imageRow4">
+  </div>
+
+  <div class="row">
+    <div *ngFor="let image of imageRow4">
+      <div class="column">
         <img src="{{image}}" height="50" width="50"/>
       </div>
     </div>
