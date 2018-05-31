@@ -12,7 +12,7 @@ export class AppComponent {
   interpretedRound = [];
   playerData = [];
   start = -1;
-  roundStart = 10;
+  roundStart = -1;
   end = -1;
   roundEnd = -1;
   playerOneHealth;
@@ -31,8 +31,7 @@ export class AppComponent {
   imageRow2 = [];
   imageRow3 = [];
   imageRow4 = [];
-
-  endOfMatch;
+  flag = false;
 
   fileUpload(event) {
     this.uploaded = true;
@@ -44,19 +43,15 @@ export class AppComponent {
     }
   }
 
-  findEnd() {
-    return this.endOfMatch;
-  }
-
   loopText() {
     this.interpreted = this.fileText.split('\n');
     this.start = this.roundStart;
     this.roundEnd = this.roundStart + 1;
     this.end = this.roundEnd;
     for (let i = 0; i < this.interpreted.length; i++) {
-      if (this.interpreted[i] === ('Starting round ' + this.start).toString() ) {
+      if (this.interpreted[i] === ('Starting round ' + this.start).toString()) {
         this.start = i;
-      } else if (this.interpreted[i] === ('Starting round ' + this.end).toString() ) {
+      } else if (this.interpreted[i] === ('Starting round ' + this.end).toString()) {
         this.end = i;
       }
     }
@@ -85,11 +80,17 @@ export class AppComponent {
         j++;
       }
       this.drawMethod();
+      this.flag = true;
     }
 
-    this.endOfMatch = this.interpreted.entries();
-    console.log(this.interpreted[0]);
+    // this.endOfMatch = this.interpreted.entries();
+    // console.log(this.interpreted[0]);
 
+  }
+
+  exit() {
+    this.flag = false;
+    window.location.reload();
   }
 
   drawMethod() {
@@ -98,7 +99,7 @@ export class AppComponent {
         let flag = 0;
         this.images.push('assets/edge.png');
         if ((this.cell[this.rows][this.columns]).includes('<')) {
-          this.images.push('assets/missileOPP.jpg');
+          this.images.push('assets/missileOPP.jpeg');
         } else if ((this.cell[this.rows][this.columns].includes('E')) && (flag === 0)) {
           this.images.push('assets/energyDONE.jpg');
           flag = 1;
@@ -123,11 +124,11 @@ export class AppComponent {
         } else if ((this.cell[this.rows][this.columns]).includes('a') && (this.columns > 3) && (flag === 0)) {
           this.images.push('assets/attackBusyOPP.jpg');
           flag = 1;
+        } else if ((this.cell[this.rows][this.columns]).includes('>')) {
+          this.images.push('assets/missilePLA.jpeg');
         } else if (flag === 0) {
           this.images.push('assets/empty.jpg');
           flag = 1;
-        } else if ((this.cell[this.rows][this.columns]).includes('>')) {
-          this.images.push('assets/missilePLA.jpg');
         }
       }
       this.images.push('assets/edge.png');
