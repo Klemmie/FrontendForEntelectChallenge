@@ -1,9 +1,8 @@
 <input id="file-upload" type="file" accept=".txt" (change)="fileUpload($event)">
-<input type="number" class="form-control" [(ngModel)]="roundStart">
-<button class="btn btn-primary" [disabled]="!uploaded" (click)="loopText()">Interpret</button>
-<button class="btn btn-primary" [disabled]="!flag" (click)="exit()">Clear</button>
+<input type="number" class="form-control" [disabled]="input" [(ngModel)]="roundStart" (input)="loopText()">
+<input type="checkbox" [(ngModel)]="input" (click)="timerChecker()">
+<input type="number" class="form-control" [(ngModel)]="speed">
 
-<!--<p>{{endOfMatch}}</p>-->
 <hr>
 <div>Player {{playerOneName}} Health : {{playerOneHealth}}</div>
 <div>Player {{playerOneName}} Energy : {{playerOneEnergy}}</div>
@@ -16,38 +15,33 @@
 
 <div>
   <td>
-    <hr>
-    <div class="row">
+    <div class="row" style="border-top: 1px solid black">
       <div *ngFor="let image of imageRow1">
         <div class="column">
-          <img src="{{image}}" height="50" width="50"/>
+          <img src="{{image}}" height="35" width="35"/>
         </div>
       </div>
     </div>
-    <hr>
     <div class="row">
       <div *ngFor="let image of imageRow2">
         <div class="column">
-          <img src="{{image}}" height="50" width="50"/>
+          <img src="{{image}}" height="35" width="35"/>
         </div>
       </div>
     </div>
-    <hr>
     <div class="row">
       <div *ngFor="let image of imageRow3">
         <div class="column">
-          <img src="{{image}}" height="50" width="50"/>
+          <img src="{{image}}" height="35" width="35"/>
         </div>
       </div>
     </div>
-    <hr>
     <div class="row">
       <div *ngFor="let image of imageRow4">
         <div class="column">
-          <img src="{{image}}" height="50" width="50"/>
+          <img src="{{image}}" height="35" width="35"/>
         </div>
       </div>
     </div>
-    <hr>
   </td>
 </div>
