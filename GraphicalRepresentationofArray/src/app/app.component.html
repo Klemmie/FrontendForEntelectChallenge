@@ -1,17 +1,23 @@
 <input id="file-upload" type="file" accept=".txt" (change)="fileUpload($event)">
-<input type="number" class="form-control" [disabled]="input" [(ngModel)]="roundStart" (input)="loopText()">
-<input type="checkbox" [(ngModel)]="input" (click)="timerChecker()">
-<input type="number" class="form-control" [(ngModel)]="speed">
+Round number: <input type="number" class="form-control" [disabled]="input" [(ngModel)]="roundStart"
+                     (input)="loopText()">
+Animate: <input type="checkbox" [(ngModel)]="input" (click)="timerChecker()">
+Animation speed: <input type="number" class="form-control" [(ngModel)]="speed">
 
-<hr>
-<div>Player {{playerOneName}} Health : {{playerOneHealth}}</div>
-<div>Player {{playerOneName}} Energy : {{playerOneEnergy}}</div>
-<div>Player {{playerOneName}} Score : {{playerOneScore}}</div>
-<hr>
-<div>Player {{playerTwoName}} Health : {{playerTwoHealth}}</div>
-<div>Player {{playerTwoName}} Energy : {{playerTwoEnergy}}</div>
-<div>Player {{playerTwoName}} Score : {{playerTwoScore}}</div>
-<hr>
+<table width="100%">
+  <tr>
+    <td bgcolor="#228b22" style="color: white; font-family: 'Arial', Arial, serif;">
+      <div>Player {{playerOneName}} Health : {{playerOneHealth}}</div>
+      <div>Player {{playerOneName}} Energy : {{playerOneEnergy}}</div>
+      <div>Player {{playerOneName}} Score : {{playerOneScore}}</div>
+    </td>
+    <td bgcolor="#1e90ff" style="color: white; font-family: 'Arial', Arial, serif;">
+      <div>Player {{playerTwoName}} Health : {{playerTwoHealth}}</div>
+      <div>Player {{playerTwoName}} Energy : {{playerTwoEnergy}}</div>
+      <div>Player {{playerTwoName}} Score : {{playerTwoScore}}</div>
+    </td>
+  </tr>
+</table>
 
 <div>
   <td>

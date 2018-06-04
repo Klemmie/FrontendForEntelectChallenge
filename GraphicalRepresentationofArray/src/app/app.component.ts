@@ -19,8 +19,8 @@ export class AppComponent {
   playerTwoEnergy;
   playerOneScore;
   playerTwoScore;
-  playerOneName;
-  playerTwoName;
+  playerOneName = 'A';
+  playerTwoName = 'B';
   cell = [];
   rows = 0;
   columns = 0;
